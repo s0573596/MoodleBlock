@@ -70,11 +70,9 @@ class block_wing extends block_base {
     	'cx' => $cx,
 	];
 
-	$url .= 'https://www.googleapis.com/customsearch/v1?' . http_build_query($params);
+	$url .= 'https://www.googleapis.com/customsearch/v1?' . http_build_query($params,'','&');
 
-	// Failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
-	//$response = file_get_contents($url);
-	$response = false;
+	$response = file_get_contents($url);
 	$links = '';
 
 	if ($response !== false) {
